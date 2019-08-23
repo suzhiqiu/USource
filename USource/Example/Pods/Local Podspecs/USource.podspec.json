@@ -1,0 +1,22 @@
+{
+  "name": "USource",
+  "version": "0.1.0",
+  "summary": "A short description of USource.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/364121248@qq.com/USource",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "364121248@qq.com": "zhiqiu.su@ucarinc.com"
+  },
+  "source": {
+    "git": "https://github.com/364121248@qq.com/USource.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "USource/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module USource {
+  umbrella header "USource-umbrella.h"
+
+  export *
+  module * { export * }
+}
