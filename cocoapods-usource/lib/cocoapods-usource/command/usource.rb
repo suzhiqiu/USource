@@ -1,3 +1,7 @@
+require 'cocoapods-usource/command/usource/list'
+require 'cocoapods-usource/command/usource/add'
+require 'cocoapods-usource/command/usource/clean'
+
 module Pod
   class Command
     # This is an example of a cocoapods plugin adding a top-level subcommand
