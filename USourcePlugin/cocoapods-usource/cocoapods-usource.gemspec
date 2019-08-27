@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['zhiqiu.su@ucarinc.com']
   spec.description   = %q{A short description of cocoapods-usource.}
   spec.summary       = %q{A longer description of cocoapods-usource.}
-  spec.homepage      = 'https://github.com/EXAMPLE/cocoapods-usource'
+  spec.homepage      = 'https://github.com/suzhiqiu/USource/tree/master/USourcePlugin/cocoapods-usource'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)

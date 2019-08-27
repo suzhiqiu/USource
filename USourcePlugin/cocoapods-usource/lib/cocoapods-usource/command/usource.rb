@@ -1,13 +1,14 @@
+require 'cocoapods-usource/command/usource/add'
 module Pod
   class Command
-    # This is an example of a cocoapods plugin adding a top-level subcommand
-    # to the 'pod' command.
-    #
-    # You can also create subcommands of existing or new commands. Say you
-    # wanted to add a subcommand to `list` to show newly deprecated pods,
-    # (e.g. `pod list deprecated`), there are a few things that would need
-    # to change.
-    #
+        # This is an example of a cocoapods plugin adding a top-level subcommand
+        # to the 'pod' command.
+        #
+        # You can also create subcommands of existing or new commands. Say you
+        # wanted to add a subcommand to `list` to show newly deprecated pods,
+        # (e.g. `pod list deprecated`), there are a few things that would need
+        # to change.
+        #
     # - move this file to `lib/pod/command/list/deprecated.rb` and update
     #   the class to exist in the the Pod::Command::List namespace
     # - change this class to extend from `List` instead of `Command`. This
@@ -18,10 +19,10 @@ module Pod
     #       in the `plugins.json` file, once your plugin is released.
     #
     class Usource < Command
-      self.summary = 'Short description of cocoapods-usource.'
+      self.summary =  '组件二进制化查看源码插件'
 
       self.description = <<-DESC
-        Longer description of cocoapods-usource.
+        通过二进制对应源码放在临时目录中,让二进制出现断点时可以跳到对应的源码
       DESC
 
       self.arguments = 'NAME'
@@ -34,10 +35,6 @@ module Pod
       def validate!
         super
         help! 'A Pod name is required.' unless @name
-      end
-
-      def run
-        UI.puts "Add your implementation for the cocoapods-usource plugin in #{__FILE__}"
       end
     end
   end
