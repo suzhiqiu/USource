@@ -6,7 +6,7 @@ module Pod
         self.summary = '再不删除二进制的情况下为组件添加源码调试能力,多个组件名称用空格分隔'
 
         def initialize(argv)
-          @update = argv.flag?('update')
+          UI.puts "参数:#{argv}".red
           super
         end
 
@@ -27,7 +27,7 @@ module Pod
           output = `#{command}`.lines.to_a
           UI.puts "完成...".red
         end
-        
+
       end
     end
   end

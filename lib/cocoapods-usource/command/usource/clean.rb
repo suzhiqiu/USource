@@ -4,23 +4,17 @@ module Pod
       class Clean < Usource
         self.summary = '删除所有已经下载的源码'
 
-        def initialize(argv)
-          @update = argv.flag?('update')
-          @code  = argv.flag?('code')
-          @diff  = argv.flag?('diff')
-          super
-        end
 
         def run
-         delete
+         @path = '/Users/suzhiqiu/Downloads/q'
+         delete(path)
         end
         
-        def delete()
-            UI.puts "开始删除...".red
+        def delete(path)
+            UI.puts "#{path}".red
+            UI.puts "开始删除中,请稍候...".red
             # @path = ''
-            command = 'rm -rf  /Users/suzhiqiu/Downloads/q'
-            output = `#{command}`
-            UI.puts "#{output}"
+            command = 'rm -rf  #{path}'
             UI.puts "结束删除...".red
         end
 

@@ -10,13 +10,14 @@ module Pod
         end
 
         def run
-          list
+          @path = '/Users/suzhiqiu/Downloads/q'
+          list(path)
         end
 
-        def list()
+        def list(path)
           UI.puts "开始统计大小...".red
           # @path = ''
-          command = 'du -sh  /Users/suzhiqiu/Desktop/bin/lib/* | sort -n'
+          command = 'du -sh   #{path}/* | sort -n'
           output = `#{command}`
           UI.puts "#{output}"
           UI.puts "结束统计大小...".red
