@@ -15,17 +15,35 @@ module Pod
         end
 
         def addSource()
+          nameArgv = "afnetworking  refresh "
+          nameArray = nameArgv.split
+          if nameArray.length == 0
+           UI.puts "请输入要下载组件源码名称".red
+           return 
+          end
+          nameArray.each_index {|index|
+           item = nameArray[index]
+           UI.puts "#{item}".red
+           downSource(item)
+         }
+         UI.puts "下载完成...".red
+
+        end
+
+        def downSource(name)
           command = 'dwarfdump /Users/suzhiqiu/Library/Developer/Xcode/DerivedData/LibSource-gvmdthzquecjhpdskogxxrkgtmhc/Build/Products/Debug-iphonesimulator/libLibSource.a | grep \'DW_AT_comp_dir\''
-          UI.puts "#{command}".red
-          output = `#{command}`.lines.to_a
-          UI.puts "#{output}".red
+  
+          UI.puts "#{command}".red    
          # if output.empty
           #  UI.puts "没找到二进制编译路径信息".red
          # end
-          UI.puts "开始下载...".red
-          command = 'git clone  https://github.com/suzhiqiu/UCARRobot  ~/Downloads/q'
+          serverPath = 'https://github.com/suzhiqiu/UCARRobot'
+          localPath = '~/Downloads/q'
+
+          UI.puts "开始下载#{name}".red
+          command = `git clone  #{serverPath}  #{localPath}`
           output = `#{command}`.lines.to_a
-          UI.puts "完成...".red
+          UI.puts "#{output}".red
         end
 
       end
