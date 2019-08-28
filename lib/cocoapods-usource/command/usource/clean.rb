@@ -6,16 +6,16 @@ module Pod
         self.arguments = []
 
         def run
-         @path = '/Users/suzhiqiu/Downloads/q'
+         path = '/Users/suzhiqiu/Downloads/q'
          delete(path)
         end
         
         def delete(path)
-            UI.puts "#{path}".red
-            UI.puts "开始删除中,请稍候...".red
-            # @path = ''
-            command = `rm -rf  #{path}`
-            UI.puts "结束删除...".red
+            UI.puts "路径:#{path}".red
+            UI.puts "正在删除中,请稍候...".red
+            command = "rm -rf  #{path}"
+            output = `#{command}`
+            UI.puts "删除成功!".red
         end
    
       end

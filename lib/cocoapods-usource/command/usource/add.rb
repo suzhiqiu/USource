@@ -3,10 +3,11 @@ module Pod
   class Command
     class Usource < Command
       class Add < Usource
-        self.summary = '再不删除二进制的情况下为组件添加源码调试能力,多个组件名称用空格分隔'
+        self.summary = '再不删除二进制的情况下为组件添加源码调试能力,多个组件名称用逗号分隔'
 
         def initialize(argv)
-          UI.puts "参数:#{argv}".red
+          @nameArgv = argv.shift_argument
+          UI.puts "add输入参数:#{@nameArgv}".red
           super
         end
 
@@ -15,8 +16,7 @@ module Pod
         end
 
         def addSource()
-          nameArgv = "afnetworking  refresh "
-          nameArray = nameArgv.split
+          nameArray = @nameArgv.split
           if nameArray.length == 0
            UI.puts "请输入要下载组件源码名称".red
            return 
