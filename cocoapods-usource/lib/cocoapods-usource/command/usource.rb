@@ -22,7 +22,7 @@ module Pod
     #       in the `plugins.json` file, once your plugin is released.
     #
     class Usource < Command
-      self.summary = 'Short description of cocoapods-usource.'
+      self.summary = 'Suzq Short description of cocoapods-usource.'
 
       self.description = <<-DESC
         Longer description of cocoapods-usource.
