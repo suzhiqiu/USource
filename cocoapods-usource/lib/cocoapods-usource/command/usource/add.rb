@@ -3,7 +3,7 @@ require 'cocoapods'
 module Pod
   class Command
     class Usource < Command
-      class Add < Bin
+      class Add < Usource
         self.summary = '再不删除二进制的情况下为组件添加源码调试能力,多个组件名称用空格分隔'
 
         def initialize(argv)

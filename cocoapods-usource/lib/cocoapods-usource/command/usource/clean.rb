@@ -1,7 +1,7 @@
 module Pod
   class Command
     class Usource < Command
-      class Clean < Bin
+      class Clean < Usource
         self.summary = '删除所有已经下载的源码'
 
         def initialize(argv)
