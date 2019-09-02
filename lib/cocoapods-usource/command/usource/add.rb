@@ -32,8 +32,9 @@ module Pod
 
 
         def downSource(name)
-          command = 'dwarfdump /Users/suzhiqiu/Library/Developer/Xcode/DerivedData/LibSource-gvmdthzquecjhpdskogxxrkgtmhc/Build/Products/Debug-iphonesimulator/libLibSource.a | grep \'DW_AT_comp_dir\''
-          UI.puts "#{command}".red    
+          command = "dwarfdump /Users/suzhiqiu/Library/Developer/Xcode/DerivedData/LibSource-gvmdthzquecjhpdskogxxrkgtmhc/Build/Products/Debug-iphonesimulator/libLibSource.a | grep \'DW_AT_comp_dir\'"
+          output = `#{command}`
+          UI.puts "#{output}".red
          # if output.empty
           #  UI.puts "没找到二进制编译路径信息".red
          # end
