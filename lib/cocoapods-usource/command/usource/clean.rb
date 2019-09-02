@@ -6,8 +6,8 @@ module Pod
         self.arguments = []
 
         def run
-         path = '/Users/suzhiqiu/Downloads/q'
-         delete(path)
+          path = Config.compilePath
+          delete(path)
         end
         
         def delete(path)

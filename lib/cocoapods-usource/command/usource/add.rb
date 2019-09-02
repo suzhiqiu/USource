@@ -30,21 +30,30 @@ module Pod
 
         end
 
+
         def downSource(name)
           command = 'dwarfdump /Users/suzhiqiu/Library/Developer/Xcode/DerivedData/LibSource-gvmdthzquecjhpdskogxxrkgtmhc/Build/Products/Debug-iphonesimulator/libLibSource.a | grep \'DW_AT_comp_dir\''
-  
           UI.puts "#{command}".red    
          # if output.empty
           #  UI.puts "没找到二进制编译路径信息".red
          # end
-          serverPath = 'https://github.com/suzhiqiu/UCARRobot'
-          localPath = '~/Downloads/q'
+          localPath =  Config.source_dir + '/' +name
+
+          urlContent = YAML.load(File.open(Config.config_file))
+          serverPath =  urlContent[name]
+          if serverPath.empty?
+            UI.puts "没找到#{name}源码路径信息".red
+            return
+          end
 
           UI.puts "开始下载#{name}".red
-          command = `git clone  #{serverPath}  #{localPath}`
+          command = "git clone  #{serverPath}  #{localPath}"
+          UI.puts "command:#{command}".red
           output = `#{command}`.lines.to_a
-          UI.puts "#{output}".red
+          #UI.puts "#{output}".red
         end
+
+
 
       end
     end

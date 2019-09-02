@@ -5,7 +5,7 @@ module Pod
         self.summary = '展示所有已经下载的源码以及大小'
 
         def run
-          path = '/Users/suzhiqiu/Downloads/q'
+          path = Config.compilePath
           list(path)
         end
 
