@@ -8,10 +8,10 @@ module Pod
         self.arguments = []
 
         def run
-          Update.update
+           init
         end
 
-        def Update.update()
+        def Init.init()
           UI.puts "路径:#{Config.url_file}".red
           if !File.exist? Config.url_file
             UI.puts "URL文件配置不存在:#{Config.url_file}".red
