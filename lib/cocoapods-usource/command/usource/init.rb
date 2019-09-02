@@ -1,10 +1,10 @@
-require 'Config'
+require 'cocoapods-usource/config/uconfig'
 
 module Pod
   class Command
     class Usource < Command
       class Init < Usource
-        self.summary = '更新配置'
+        self.summary = '更新配置 eg.添加新的组件地址'
         self.arguments = []
 
         def run
