@@ -3,7 +3,7 @@ require 'Config'
 module Pod
   class Command
     class Usource < Command
-      class Update < Usource
+      class Init < Usource
         self.summary = '更新配置'
         self.arguments = []
 

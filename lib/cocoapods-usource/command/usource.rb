@@ -1,6 +1,7 @@
 require 'cocoapods-usource/command/usource/list'
 require 'cocoapods-usource/command/usource/add'
 require 'cocoapods-usource/command/usource/clean'
+require 'cocoapods-usource/command/usource/init'
 
 module Pod
   class Command
