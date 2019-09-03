@@ -14,7 +14,7 @@ module Pod
         end
 
         def Init.init()
-          UI.puts "路径:#{Config.url_file}".red
+          #UI.puts "路径:#{Config.url_file}".red
           if !File.exist? Config.url_file
             UI.puts "URL文件配置不存在:#{Config.url_file}".red
             return false
@@ -33,21 +33,21 @@ module Pod
         end
 
         def  Init.downloadConfig(path)
-          UI.puts "config_url:#{path}".red
-          # UI.puts "开始下载配置文件...\n"
-          # #file = open(config_url)
-          # file = File.open(Config.url_file)
-          # UI.puts "打开1#{file}\n"
-          # UI.puts "打开2:#{file.read}\n"
-          # contents = YAML.load(file)
-          # #contents = file.read
-          # UI.puts "打开2:#{contents}\n"
-          # UI.puts "开始同步配置文件...\n"
-          # Config.sync_config(contents)
-          # UI.puts "设置完成.\n".green
+          #UI.puts "config_url:#{path}".red
+          localPath = Config.sourceConfig_dir
+          if Dir.exist?localPath
+            UI.puts "重新下载配置文件...\n"
+            command = "rm -rf  #{localPath}"
+            output = `#{command}`
+          else
+            UI.puts "开始下载配置文件...\n"
+          end
+          command = "git clone  #{path}  #{localPath}"
+          UI.puts "command:#{command}".red
+          output = `#{command}`.lines.to_a
+          UI.puts "完成下载配置文件...\n"
+          #
         end
-
-
 
 
       end

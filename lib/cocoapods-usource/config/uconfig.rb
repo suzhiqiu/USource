@@ -8,12 +8,12 @@ module Pod
 
      def Config.source_dir
           sourceDir = home_dir + '/pods'
-          UI.puts "sourceDir:#{sourceDir}".red
+          #UI.puts "sourceDir:#{sourceDir}".red
           if !Dir.exist?sourceDir
-            UI.puts "不存在:#{sourceDir}".red
+            #UI.puts "不存在:#{sourceDir}".red
             Dir.mkdir(sourceDir)
           end
-          UI.puts "存在:#{sourceDir}".red
+          #UI.puts "存在:#{sourceDir}".red
           sourceDir
      end
 
@@ -22,8 +22,12 @@ module Pod
          home_dir + '/config'
      end
 
+     def Config.sourceConfig_dir
+       config_dir + '/ucarconfig'
+     end
+
      def Config.config_file
-       config_dir + '/config.yml'
+       sourceConfig_dir + '/config.yml'
      end
 
      def Config.url_file
@@ -55,7 +59,7 @@ module Pod
          compile_path = '~/Documents/ucar/pods'
        end
        @@compile_path = compile_path
-       UI.puts "compile_path:#{ @@compile_path}".red
+       #UI.puts "compile_path:#{ @@compile_path}".red
      end
 
   end

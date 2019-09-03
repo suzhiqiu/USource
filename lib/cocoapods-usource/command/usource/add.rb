@@ -7,7 +7,7 @@ module Pod
 
         def initialize(argv)
           @nameArgv = argv.shift_argument
-          UI.puts "add输入参数:#{@nameArgv}".red
+          #UI.puts "add输入参数:#{@nameArgv}".red
           super
         end
 
@@ -23,7 +23,7 @@ module Pod
           end
           nameArray.each_index {|index|
            item = nameArray[index]
-           UI.puts "#{item}".red
+           #UI.puts "#{item}".red
            downSource(item)
          }
          UI.puts "下载完成...".red
@@ -32,12 +32,12 @@ module Pod
 
 
         def downSource(name)
-          command = "dwarfdump /Users/suzhiqiu/Library/Developer/Xcode/DerivedData/LibSource-gvmdthzquecjhpdskogxxrkgtmhc/Build/Products/Debug-iphonesimulator/libLibSource.a | grep \'DW_AT_comp_dir\'"
-          output = `#{command}`
-          UI.puts "#{output}".red
-         # if output.empty
+          #command = "dwarfdump /Users/suzhiqiu/Library/Developer/Xcode/DerivedData/LibSource-gvmdthzquecjhpdskogxxrkgtmhc/Build/Products/Debug-iphonesimulator/libLibSource.a | grep \'DW_AT_comp_dir\'"
+          #output = `#{command}`
+          # UI.puts "#{output}".red
+          # if output.empty
           #  UI.puts "没找到二进制编译路径信息".red
-         # end
+          # end
           localPath =  Config.source_dir + '/' +name
 
           urlContent = YAML.load(File.open(Config.config_file))
@@ -47,9 +47,16 @@ module Pod
             return
           end
 
-          UI.puts "开始下载#{name}".red
+          if Dir.exist?localPath
+            UI.puts "重新下载#{name}".red
+            command = "rm -rf  #{localPath}"
+            output = `#{command}`
+          else
+            UI.puts "开始下载#{name}".red
+          end
+
           command = "git clone  #{serverPath}  #{localPath}"
-          UI.puts "command:#{command}".red
+          UI.puts "command:#{command}"
           output = `#{command}`.lines.to_a
           #UI.puts "#{output}".red
         end

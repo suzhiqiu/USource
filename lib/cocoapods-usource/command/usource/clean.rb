@@ -10,7 +10,7 @@ module Pod
           if @name.nil?
             @name = ''
           end
-          UI.puts "Clean输入参数:#{@name}".red
+          #UI.puts "Clean输入参数:#{@name}".red
           super
         end
 
@@ -23,7 +23,7 @@ module Pod
         end
         
         def Clean.delete(path)
-            UI.puts "路径:#{path}".red
+            UI.puts "路径:#{path}"
             UI.puts "正在删除中,请稍候...".red
             command = "rm -rf  #{path}"
             output = `#{command}`
